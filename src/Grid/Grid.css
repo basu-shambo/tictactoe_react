@@ -6,6 +6,7 @@
     display: grid;
     grid-template-columns: repeat(3,1fr);
     width:78vh;
+    /* Disabling the text selection by user */
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;

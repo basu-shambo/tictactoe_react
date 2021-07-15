@@ -1,5 +1,8 @@
+:root{
+    --background:rgba(223, 219, 171, 0.562);
+}
 body{
-    background-color: rgba(223, 219, 171, 0.562);
+    background-color: var(--background);
     height: 98vh;
 }
 .app{
