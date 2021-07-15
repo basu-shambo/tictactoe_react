@@ -3,15 +3,13 @@ import Cell from './Cell'
 import './Grid.css'
 const Grid = ({player,setPlayer}) => {
     const positions = ["00","01","02","10","11","12","20","21","22"]
-    const callback = (fn) =>{
-        return fn
-    }
+    const [isWon,setIsWon] = useState(false);
     const check=(array,a,b,c)=>{
         if(array[a] && array[b] && array[c] && array[a]===array[b] && array[b]===array[c]){
-            console.log(a,b,c)
             document.querySelector(`#p${positions[a]}`).style.backgroundColor = "burlywood";
             document.querySelector(`#p${positions[b]}`).style.backgroundColor = "burlywood";
             document.querySelector(`#p${positions[c]}`).style.backgroundColor = "burlywood";
+            setIsWon(true);
         }
     }
     const checkWinner=()=>{
@@ -31,7 +29,7 @@ const Grid = ({player,setPlayer}) => {
         <div className="grid">
             {
                 positions.map((position)=>{
-                    return <Cell key={position}  {...{callback,checkWinner,position,player,setPlayer}}/>
+                    return <Cell key={position}  {...{checkWinner,position,player,setPlayer,isWon}}/>
                 })
             }
         </div>
