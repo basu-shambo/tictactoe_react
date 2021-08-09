@@ -1,24 +1,24 @@
 :root{
     --active-text-color: burlywood;
     --active-shadow-color: rgb(29, 39, 128);
-}
-.player-indicator{
-    font-size: 8vh;
-    display: grid;
-    place-items: center;
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    transform: skewY(-8deg);
-    transform-origin: right top;
-    
+    --player-selector-margin : 100px;
 }
 .p1{
-    margin-right: 10vw;
+    margin-right:var(--player-selector-margin);
 }
 .p2{
-    margin-left: 10vw;
+    margin-left:var(--player-selector-margin);
+}
+.selectorChar{
+    font-size: 70px;
+    
 }
 .active{
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+    font-size: 8vh;
+    transform: skewY(-6deg);
     color:var(--active-text-color);
     text-shadow: 
     1px 2px  var(--active-shadow-color),
@@ -29,7 +29,6 @@
     6px 7px  var(--active-shadow-color),
     7px 8px  var(--active-shadow-color),
     8px 9px  var(--active-shadow-color);
-
 }
 .inactive{
     color:var(--background);

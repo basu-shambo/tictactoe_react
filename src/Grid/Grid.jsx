@@ -3,7 +3,7 @@ import Cell from './Cell'
 import './Grid.css'
 const Grid = ({player,setPlayer}) => {
     const positions = ["00","01","02","10","11","12","20","21","22"]
-    const [isWon,setIsWon] = useState(false);
+    const [isEnded,setEnded] = useState(false); //false means the game is still going on, true means game has ended
     const check=(array,a,b,c)=>{
         if(array[a] && array[b] && array[c] && array[a]===array[b] && array[b]===array[c]){
             document.querySelector(`#p${positions[a]}`).style.backgroundColor = "burlywood";
@@ -18,6 +18,7 @@ const Grid = ({player,setPlayer}) => {
         const xnos = positions.map((position)=>{
             return document.querySelector(`#p${position}`).innerHTML;
         })
+        //return true if 
         return (
             check(xnos,0,1,2) ||
             check(xnos,3,4,5) ||
@@ -34,7 +35,7 @@ const Grid = ({player,setPlayer}) => {
         <div className="grid">
             {
                 positions.map((position)=>{
-                    return <Cell key={position}  {...{checkWinner,position,player,setPlayer,isWon}}/>
+                    return <Cell key={position}  {...{checkWinner,position,player,setPlayer,isEnded,setEnded}}/>
                 })
             }
         </div>

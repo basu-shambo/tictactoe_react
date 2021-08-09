@@ -1,21 +1,22 @@
 import React ,{useState} from 'react'
 
-const Cell = ({checkWinner,position,player,setPlayer}) => {
+const Cell = ({checkWinner,position,player,setPlayer,isEnded,setEnded}) => {
     
     const [clicked,setClicked] = useState(false)
     let ended = false;
     const handleClick=(e)=>{
         e.stopPropagation();
         const text = player?"O":"X";
-        if(e.target.tagName==="P"){
+        if(e.target.tagName==="P" && !isEnded){
             e.target.innerText = text;
             
         }
-        else if(e.target.tagName==="DIV"){
+        else if(e.target.tagName==="DIV" &&  !isEnded){
             e.target.querySelector("p").innerText=text;
         }
         
         ended = checkWinner();
+        setEnded(ended);
         if(!ended){
             setPlayer(!player)
         }
