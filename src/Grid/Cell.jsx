@@ -3,7 +3,6 @@ import React ,{useState} from 'react'
 const Cell = ({checkWinner,position,player,setPlayer,isEnded,setEnded}) => {
     
     const [clicked,setClicked] = useState(false)
-    let ended = false;
     const handleClick=(e)=>{
         e.stopPropagation();
         const text = player?"O":"X";
@@ -15,7 +14,7 @@ const Cell = ({checkWinner,position,player,setPlayer,isEnded,setEnded}) => {
             e.target.querySelector("p").innerText=text;
         }
         
-        ended = checkWinner();
+        const ended = isEnded?true:checkWinner();
         setEnded(ended);
         if(!ended){
             setPlayer(!player)
@@ -23,8 +22,8 @@ const Cell = ({checkWinner,position,player,setPlayer,isEnded,setEnded}) => {
         setClicked(true)
     }
     return (
-        <div  className={position} onClick={clicked||ended?undefined:handleClick}>
-            <p  id={`p${position}`} onClick={clicked||ended?undefined:handleClick}></p>
+        <div  className={position} onClick={clicked||isEnded?undefined:handleClick}>
+            <p  id={`p${position}`} onClick={clicked||isEnded?undefined:handleClick}></p>
         </div>
     )
 }

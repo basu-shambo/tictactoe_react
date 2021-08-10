@@ -6,8 +6,8 @@ const PlayerSelector = ({className,active}) => {
     return (
         <div className={`player-indicator ${className} ${active?"active":"inactive"}`}>
             {
-                [...text].map((char)=>{
-                    return (<div className="selectorChar">{char}</div>)
+                [...text].map((char,index)=>{
+                    return (<div key={index} className="selectorChar">{char}</div>)
                 })
             }
         </div>
