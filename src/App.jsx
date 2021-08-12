@@ -20,8 +20,6 @@ const App = () => {
                 <Grid {...{player,setPlayer,score,setScore}}/>
                 <PlayerSelector className="p2" active={player?true:false}/>
             </div>
-            
-            
         </div>
     )
 }
