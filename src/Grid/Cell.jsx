@@ -9,7 +9,6 @@ const Cell = ({setGrid,cellText,position,player,setPlayer,isEnded}) => {
             arr[parseInt(position[0])][parseInt(position[1])] = text;
             return arr;
         })
-        setPlayer(!player);
         
     }
     const active = cellText?false:true;

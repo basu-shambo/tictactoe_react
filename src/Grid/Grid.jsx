@@ -14,7 +14,21 @@ const Grid = ({player,setPlayer,score,setScore}) => {
     const [isEnded,setEnded] = useState(false); //false means the game is still going on, true means game has ended
     const [modalState,setModalState] =  useState(false) // false means the modal is closed this is the modal state used to open or close the modal
     useEffect(()=>{
-        CheckWinner(grid,setScore,setEnded);
+        const isWon= CheckWinner(grid);
+        if(isWon){
+            setEnded(true);
+            setScore(score=>{
+                return {...score,
+                    player1:player?score.player1:score.player1+1,
+                    player2:player?score.player2+1:score.player2
+                }
+            });
+            
+            return;
+        }
+        setPlayer(!player);
+        
+        
     },[grid])
     return (
         <>
