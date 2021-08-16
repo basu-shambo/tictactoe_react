@@ -12,12 +12,16 @@ const App = () => {
         player2:0,
         draw:0
     });
+    const resetScoreAndPlayer = () =>{
+        setScore({ player1:0,player2:0,draw:0});
+        setPlayer(false);
+    }
     return (
         <div className="app">
             <Header className="header" score={score}/>
             <div className="playarea">
                 <PlayerSelector className="p1" active={player?false:true}/>
-                <Grid {...{player,setPlayer,score,setScore}}/>
+                <Grid {...{player,setPlayer,score,setScore,resetScoreAndPlayer}}/>
                 <PlayerSelector className="p2" active={player?true:false}/>
             </div>
         </div>

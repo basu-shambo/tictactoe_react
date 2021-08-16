@@ -15,11 +15,23 @@ const possiblePositions =
  * @returns whether any palyer has won
  */
 export const CheckWinner=(grid)=>{
-    const isWon = possiblePositions.reduce((acc,curr)=>{
+    // const isWon = possiblePositions.reduce((acc,curr)=>{
         
-        return acc||check(grid,curr[0],curr[1],curr[2])
-    },false);
-    return isWon;
+    //     return acc||check(grid,curr[0],curr[1],curr[2],setWinnigPositions)
+    // },false);
+    const winners = new Set();
+    possiblePositions.forEach((position)=>{
+        const p = grid[parseInt(position[0][0])][parseInt(position[0][1])];
+        const q = grid[parseInt(position[1][0])][parseInt(position[1][1])];
+        const r = grid[parseInt(position[2][0])][parseInt(position[2][1])];
+        if(p&&q&&r&&p===q&&q===r&&p===r){
+            winners.add(position[0]);
+            winners.add(position[1]);
+            winners.add(position[2]);
+            return winners;
+        }
+    })
+    return winners;
 }
 
 /**
@@ -27,28 +39,10 @@ export const CheckWinner=(grid)=>{
  * @param {string[][]} grid 
  * @returns if the game is a draw
  */
-export const CheckDraw = (grid)=>{
-    const isDraw = grid.reduce((acc,curr)=>acc && curr)
+export const CheckDraw = (grid,)=>{
+    const isDraw = grid.reduce((acc,curr)=>{
+        const row = curr.reduce((a,c)=>a&&c?true:false);
+        return acc && row;
+    },true)
     return isDraw;
-}
-
-/**
- * Checks if the grid at positions a,b,c are the same
- * @param {string[][]} grid 
- * @param {string} a - first positon of the grid
- * @param {string} b - second positon of the grid
- * @param {sting} c - third positon of the grid
- * @returns true if the grid at the positions are the same
- */
-const check=(grid,a,b,c)=>{
-    const p = grid[parseInt(a[0])][parseInt(a[1])];
-    const q = grid[parseInt(b[0])][parseInt(b[1])];
-    const r = grid[parseInt(c[0])][parseInt(c[1])];
-    if(p&&q&&r&&p===q&&q===r&&p===r){
-        document.querySelector(`#p${a}`).style.backgroundColor = "burlywood";
-        document.querySelector(`#p${b}`).style.backgroundColor = "burlywood";
-        document.querySelector(`#p${c}`).style.backgroundColor = "burlywood";
-        return true; 
-    }
-    return false;
 }

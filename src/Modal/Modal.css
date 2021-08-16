@@ -1,9 +1,22 @@
-.portal{
-    background-color: rgba(0, 0, 0, 0.7);
+:root{
+    --modal-backgroudn:white;
+}
+.modal{
+    /* background-color: rgba(0, 0, 0, 0.7); */
     width: 100vw;
     height: 100vh;
     position: fixed;
     top:0;
     left:0;
     
+}
+.portalContent{
+    text-align: center;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:20vw;
+    height:20vh;
+    background-color: aliceblue;
 }

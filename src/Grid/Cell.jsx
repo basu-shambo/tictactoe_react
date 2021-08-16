@@ -1,6 +1,6 @@
-import React ,{useState} from 'react'
+import React from 'react'
 
-const Cell = ({setGrid,cellText,position,player,setPlayer,isEnded}) => {
+const Cell = ({setGrid,cellText,position,player,isEnded,winner}) => {
     const handleClick=(e)=>{
         e.stopPropagation();
         const text = player?"O":"X";
@@ -14,7 +14,7 @@ const Cell = ({setGrid,cellText,position,player,setPlayer,isEnded}) => {
     const active = cellText?false:true;
     return (
         <div  className={position} onClick={!active||isEnded?undefined:handleClick}>
-            <p  id={`p${position}`} onClick={!active||isEnded?undefined:handleClick}>{cellText}</p>
+            <p  id={`p${position}`} className={winner?"winning":"notWinning"} onClick={!active||isEnded?undefined:handleClick}>{cellText}</p>
         </div>
     )
 }
