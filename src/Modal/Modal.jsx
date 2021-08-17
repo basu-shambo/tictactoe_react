@@ -9,18 +9,17 @@ const Modal = ({modalState,resetScoreAndPlayer,resetGrid}) => {
     const continueGame =()=>{
         resetGrid();
     }
-    // const continuegame = (resetGrid,resetScore,)
     if(!modalState.won && !modalState.draw) return null;
     return ReactDom.createPortal(
         <div className="modal">
             <div className="portalContent">
-                <div className="textConent">
+                <div className="textContent">
                     {
-                        modalState.draw?`This Match was a draw`:modalState.won?`Player${modalState.playerWon} Won`:undefined
+                        modalState.draw?`This Match was a draw`:modalState.won?`Player ${modalState.playerWon} Won`:undefined
                     }
                 </div>
-                <button onClick={endgame}>End game</button>
-                <button onClick={continueGame}>Continue</button>
+                <button id="end" onClick={endgame}>End game</button>
+                <button id="continue" onClick={continueGame}>Continue</button>
             </div>
         </div>,
         document.querySelector("#portal")

@@ -1,6 +1,6 @@
 :root{
-    --inner-border-style: 5px solid rgb(29, 39, 128);;
-    --outer-border-style: 1px solid rgb(29, 39, 128);;
+    --inner-border-style: 5px solid rgb(29, 39, 128);
+    --outer-border-style: 1px solid rgb(29, 39, 128);
 }
 .grid{
     display: grid;

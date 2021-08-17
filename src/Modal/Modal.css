@@ -1,8 +1,6 @@
-:root{
-    --modal-backgroudn:white;
-}
+
 .modal{
-    /* background-color: rgba(0, 0, 0, 0.7); */
+    background-color: rgba(222,184,135,0.5);
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -16,7 +14,27 @@
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    width:20vw;
-    height:20vh;
-    background-color: aliceblue;
+    width:400px;
+    height:160px;
+    background-color:rgba(29, 39, 128,0.5); 
+    border: 5px solid rgb(29, 39, 128);
+    border-radius: 10px;
+    padding-top: 2%;
+}
+.textContent{
+    font-size: 3rem;
+    color: rgb(255, 214, 161);
+}
+button{
+    margin: 10%;
+    height : 50px;
+    width: 100px;
+    background-color: rgb(255, 214, 161); ;
+    border-radius: 10px;
+}
+#end{
+    border: 5px solid rgb(255, 0, 0);
+}
+#continue{
+    border: 5px solid rgb(5, 187, 5);
 }
