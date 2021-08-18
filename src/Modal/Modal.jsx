@@ -15,7 +15,7 @@ const Modal = ({modalState,resetScoreAndPlayer,resetGrid}) => {
             <div className="portalContent">
                 <div className="textContent">
                     {
-                        modalState.draw?`This Match was a draw`:modalState.won?`Player ${modalState.playerWon} Won`:undefined
+                        modalState.draw?`Match Drawn`:modalState.won?`Player ${modalState.playerWon} Won`:undefined
                     }
                 </div>
                 <button id="end" onClick={endgame}>End game</button>
